@@ -23,7 +23,7 @@ if __name__ == '__main__':
     dt_classifier = cart_tree.fit(iris_train_set, max_iter=100)
     iris_res = np.asarray(cart_tree.predict(iris_test_x, dt_classifier))
 
-    print(accuracy_score(iris_res, iris_test_y))
+    print('Accuracy of iris flower test set: ', accuracy_score(iris_res, iris_test_y))
 
     bc_train_x, bc_test_x, bc_train_y, bc_test_y = train_test_split(bc_data, bc_target, test_size=0.1, random_state = 0)
     cart_tree = DecisionTree()
@@ -32,4 +32,4 @@ if __name__ == '__main__':
     dt_classifier = cart_tree.fit(bc_train_set, max_iter=100, pre_prune=True)
     bc_res = np.asarray(cart_tree.predict(bc_test_x, dt_classifier))
 
-    print(accuracy_score(bc_res, bc_test_y))
+    print('Accuracy of breast cancer test set: ', accuracy_score(bc_res, bc_test_y))
